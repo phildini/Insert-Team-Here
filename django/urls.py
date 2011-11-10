@@ -18,4 +18,6 @@ urlpatterns = patterns('',
 
     #Team Creator URLs
     url(r'^team_creator/$', 'team_creator.views.index'),
+    
 )
+
