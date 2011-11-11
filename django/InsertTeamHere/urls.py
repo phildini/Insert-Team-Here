@@ -17,6 +17,6 @@ urlpatterns = patterns('',
     #url(r'^accounts/', include('registration.backends.default.urls')),
 
     #Team Creator URLs
-    url(r'^team_creator/$', 'team_creator.views.index'),
-    url(r'^team_creator/(?P<team_id>\d+)/$', 'team_creator.views.detail')
+    url(r'^teams/$', 'teams.views.index'),
+    url(r'^teams/(?P<team_id>\d+)/$', 'teams.views.detail')
 )

@@ -1,4 +1,4 @@
-from team_creator.models import Team
+from teams.models import Team
 from django.contrib import admin
 
 class TeamAdmin(admin.ModelAdmin):

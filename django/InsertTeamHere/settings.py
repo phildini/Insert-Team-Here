@@ -106,6 +106,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    '/Users/phildini/Dropbox/School/CMPS183/Insert-Team-Here/templates'
 )
 
 INSTALLED_APPS = (
@@ -120,7 +121,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'registration',
-    'team_creator',
+    'teams',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
