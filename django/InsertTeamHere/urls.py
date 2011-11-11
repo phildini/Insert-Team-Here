@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'InsertTeamHere.views.home', name='home'),
+    url(r'^$', 'InsertTeamHere.views.home', name='home'),
     # url(r'^InsertTeamHere/', include('InsertTeamHere.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -16,7 +16,6 @@ urlpatterns = patterns('',
     #url(r'^admin/', include(admin.site.urls)),
     #url(r'^accounts/', include('registration.backends.default.urls')),
 
-    #Team Creator URLs
-    url(r'^teams/$', 'teams.views.index'),
-    url(r'^teams/(?P<team_id>\d+)/$', 'teams.views.detail')
+    #Team App URLs
+    url(r'^teams/', include('teams.urls')),
 )
