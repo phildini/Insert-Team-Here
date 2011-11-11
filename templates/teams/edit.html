@@ -7,7 +7,10 @@
 
 <h1>{{team.team_name}}</h1>
 
-<form action="/{{team.team_id}}/edit/" method="post">{% csrf_token %}
+<form action="/teams/{{team.id}}/edit/" method="post">{% csrf_token %}
 {{form.as_p}}
 <input type="submit" value="Submit" />
 </form>
+
+</body>
+</html>
