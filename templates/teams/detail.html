@@ -8,18 +8,11 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-{% for info in team.info_set.all %}
-	<p>{{ info.genre }}
-	<p>{{ info.project_type }}</p>
-{% endfor %}
+<p>{{team.genre}}</p>
+<p>{{team.project_type}}</p>
 
-<form action="/teams/{{team.id}}/edit/" method="post">
-{% csrf_token %}
-{% for info in team.info_set.all %}
-	<imput type="text" name="genre" id="genre" />
-	<label for="genre">Genre</label><br />
-{% endfor %}
-<input type="submit" value="Submit" />
+<h3>Location</h3>
+<p>{{team.city}}, {{team.state}}</p>
 
 </body>
 

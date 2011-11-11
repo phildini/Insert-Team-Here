@@ -1,8 +1,8 @@
 from django.template import Context, loader
 from django.template import RequestContext
-from django.core import reverse
-from django.shortcuts import render_to_response, redner_to_response
-from teams.models import Team, Info
+from django.core.urlresolvers import reverse
+from django.shortcuts import render_to_response, get_object_or_404
+from teams.models import Team
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 
 
