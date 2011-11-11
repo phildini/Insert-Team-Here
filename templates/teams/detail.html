@@ -6,7 +6,10 @@
 <body>
 <h1>{{team.team_name}}</h1>
 
-<p>{{team.info.city}}</p>
+{% for info in team.info_set.all %}
+	<p>{{ info.genre }}
+	<p>{{ info.project_type }}</p>
+{% endfor %}
 
 </body>
 
