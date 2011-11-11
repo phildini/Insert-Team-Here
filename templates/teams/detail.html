@@ -14,6 +14,11 @@
 <h3>Location</h3>
 <p>{{team.city}}, {{team.state}}</p>
 
+<form action="/teams/{{team.id}}/edit/" method="post">{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="Submit" />
+</form>
+
 </body>
 
 </html>
