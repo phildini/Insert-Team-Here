@@ -6,10 +6,20 @@
 <body>
 <h1>{{team.team_name}}</h1>
 
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
 {% for info in team.info_set.all %}
 	<p>{{ info.genre }}
 	<p>{{ info.project_type }}</p>
 {% endfor %}
+
+<form action="/teams/{{team.id}}/edit/" method="post">
+{% csrf_token %}
+{% for info in team.info_set.all %}
+	<imput type="text" name="genre" id="genre" />
+	<label for="genre">Genre</label><br />
+{% endfor %}
+<input type="submit" value="Submit" />
 
 </body>
 
