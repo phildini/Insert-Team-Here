@@ -15,7 +15,7 @@ class TeamEdit(forms.Form):
         state = forms.CharField(max_length=100, required=False)
 
 def index(request):
-	latest_team_list = Team.objects.all().order_by('-creation_date')[:5]
+	latest_team_list = Team.objects.all().order_by('-creation_date')[:100]
 	return render_to_response('teams/index.html', {'latest_team_list': latest_team_list})
 
 def detail(request, team_id):
