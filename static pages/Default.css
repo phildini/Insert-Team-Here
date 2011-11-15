@@ -1,0 +1,83 @@
+body{
+    font-variant: normal;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: sans-serif, "Lucida Grande", Verdana, Arial;
+    background-color: #219ce4;
+    text-align: left;
+    color: #3f3f3f;
+}
+.main {
+    background-color:#ffffff;
+	margin-left: auto;
+	margin-bottom: auto;
+	margin-right: auto;
+	margin-top: auto;
+	width: 900px; /* the auto value on the sides, coupled with the width, centers the layout */
+	overflow: hidden; /* this declaration makes the .container understand where the floated columns within ends and contain them */
+}
+.header_block{
+    position:relative;
+	background-image:url(images/header_banner.jpg);
+	border:0px;
+	padding:0px;
+	width:900px;
+	height:150px;
+	overflow: hidden;
+	background-color:#2e367d;
+}
+.left {
+	float: left;
+	width: 750px;
+	padding-bottom: 10px 0;
+}
+.right {
+	padding: 10px 0;
+	width: 150px;
+	float: left;
+}
+.footer_block{
+	/*background-image:url(images/header_banner.jpg);*/
+	float:left;
+	border:0px;
+	padding:0px;
+	width:900px;
+	height:126px;
+	background-color: #2e367d;
+}
+.main_login{
+    background-color:#ffffff;
+    /*padding-top: 150px;*/
+	margin-left: auto;
+	margin-bottom: auto;
+	margin-right: auto;
+	margin-top: 150px;
+	width: 600px;
+	overflow: hidden;
+}
+.login {
+    padding: 10px 0;
+    width: 300px;
+    float: left;
+
+}
+
+
+
+table .Login_panel {
+    border-style: ridge;
+    border-width: 6px;
+}
+
+.Login_panel tr{
+	text-align: center;
+	width: 50px;
+}
+
+.header{
+	text-align: center;
+	font-variant: normal;
+	font-weight: bold;
+	font-size: 28px;
+}
