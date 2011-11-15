@@ -14,8 +14,8 @@ body{
 	margin-bottom: auto;
 	margin-right: auto;
 	margin-top: auto;
-	width: 900px; /* the auto value on the sides, coupled with the width, centers the layout */
-	overflow: hidden; /* this declaration makes the .container understand where the floated columns within ends and contain them */
+	width: 900px; 
+	overflow: hidden;
 }
 .header_block{
     position:relative;
@@ -62,6 +62,9 @@ body{
     float: left;
 
 }
+
+
+
 
 
 
