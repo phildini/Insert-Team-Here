@@ -1,6 +1,10 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
 <html>
 <head>
 	<title>Editing {{team.team_name}} on InsertTeamHere</title>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}teams.css" />
 </head>
 
 <body>

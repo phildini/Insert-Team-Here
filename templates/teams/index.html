@@ -1,11 +1,8 @@
-<html>
-<head>
-<title>Team List - InsertTeamHere</title>
-<link rel="stylesheet" type="text/css" href="teams.css" />
-</head>
+{%extends "teams.html"%}
 
-<body>
+{%block title%}List of Teams{%endblock%}
 
+{%block left%}
 <h1>List of Teams on InsertTeamHere</h1>
 
 {% if latest_team_list %}
@@ -21,7 +18,6 @@
 {% endif %}
 
 <a href="/teams/add">Create a new team.</a>
+<p>
+{%endblock%}
 
-</body>
-
-</html>
