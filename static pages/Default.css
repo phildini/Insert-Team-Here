@@ -9,8 +9,8 @@ body{
     color: #3f3f3f;
 }
 /* rounded corners for divs*/
-b.rtop{display:block;background: #219ce4}
-b.rbottom{display:block;background: #219ce4; width:950px; float:left; margin:auto}
+b.rtop, b.rbottom{display:block;background: #219ce4}
+.main_login b.rbottom{width:600px; margin:auto; float:left}
 b.rtop b, b.rbottom b{display:block;height: 1px;overflow: hidden; background: #ffffff}
 b.r1{margin: 0 5px}
 b.r2{margin: 0 3px}
