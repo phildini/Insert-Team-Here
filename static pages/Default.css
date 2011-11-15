@@ -8,6 +8,15 @@ body{
     text-align: left;
     color: #3f3f3f;
 }
+/* rounded corners for divs*/
+b.rtop{display:block;background: #219ce4}
+b.rbottom{display:block;background: #219ce4; width:950px; float:left; margin:auto}
+b.rtop b, b.rbottom b{display:block;height: 1px;overflow: hidden; background: #ffffff}
+b.r1{margin: 0 5px}
+b.r2{margin: 0 3px}
+b.r3{margin: 0 2px}
+b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}
+
 .main {
     background-color:#ffffff;
 	margin-left: auto;
@@ -27,6 +36,7 @@ body{
 	overflow: hidden;
 	background-color:#2e367d;
 }
+/* meant to implement sidebars.  Not currently used
 .left {
 	float: left;
 	width: 720px;
@@ -37,7 +47,7 @@ body{
 	padding: 10px 0;
 	width: 120px;
 	float: left;
-	margin: 0 15px;
+	margin: 0 15px;*/
 }
 .footer_block{
 	/*background-image:url(images/header_banner.jpg);*/
@@ -48,13 +58,15 @@ body{
 	height:106px;
 	background-color: #2e367d;
 }
+
+/*for the welcome/login page*/
 .main_login{
     background-color:#ffffff;
     /*padding-top: 150px;*/
-	margin-left: auto;
-	margin-bottom: auto;
+	margin:150px auto;
+	/*margin-bottom: auto;
 	margin-right: auto;
-	margin-top: 150px;
+	margin-top: 150px;*/
 	width: 600px;
 	overflow: hidden;
 }
@@ -62,7 +74,6 @@ body{
     padding: 10px 0;
     width: 300px;
     float: left;
-
 }
 
 
