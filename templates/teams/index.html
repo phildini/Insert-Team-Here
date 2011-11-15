@@ -1,0 +1,23 @@
+{%extends "teams.html"%}
+
+{%block title%}List of Teams{%endblock%}
+
+{%block left%}
+<h1>List of Teams on InsertTeamHere</h1>
+
+{% if latest_team_list %}
+	<ul>
+	{% for team in latest_team_list %}
+		{% if team.team_name %}
+			<li><a href="/teams/{{ team.id }}/">{{ team.team_name }}</a></li>
+		{% endif %}
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No teams are available.</p>
+{% endif %}
+
+<a href="/teams/add">Create a new team.</a>
+<p>
+{%endblock%}
+

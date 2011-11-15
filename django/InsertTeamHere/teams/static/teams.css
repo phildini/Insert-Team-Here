@@ -1,0 +1,90 @@
+
+body{
+    font-variant: normal;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: sans-serif, "Lucida Grande", Verdana, Arial;
+    background-color: #219ce4;
+    text-align: left;
+    color: #3f3f3f;
+}
+.main {
+    background-color:#a3ffff;
+	margin-left: auto;
+	margin-bottom: auto;
+	margin-right: auto;
+	margin-top: auto;
+	width: 900px; 
+	overflow: hidden;
+}
+.header_block{
+    position:relative;
+	background-image:url(images/header_banner.jpg);
+	border:0px;
+	padding:0px;
+	width:900px;
+	height:100px;
+	overflow: hidden;
+	background-color:#2e367d;
+}
+.left {
+	float: left;
+	width: 720px;
+	padding-bottom: 10px 0;
+	margin: 0 15px;
+}
+.right {
+	padding: 10px 0;
+	width: 120px;
+	float: left;
+	margin: 0 15px;
+}
+.footer_block{
+	/*background-image:url(images/header_banner.jpg);*/
+	float:left;
+	border:0px;
+	padding:0px;
+	width:900px;
+	height:106px;
+	background-color: #2e367d;
+}
+.main_login{
+    background-color:#ffffff;
+    /*padding-top: 150px;*/
+	margin-left: auto;
+	margin-bottom: auto;
+	margin-right: auto;
+	margin-top: 150px;
+	width: 600px;
+	overflow: hidden;
+}
+.login {
+    padding: 10px 0;
+    width: 300px;
+    float: left;
+
+}
+
+
+
+
+
+
+table .Login_panel {
+    border-style: ridge;
+    border-width: 6px;
+}
+
+.Login_panel tr{
+	text-align: center;
+	width: 50px;
+}
+
+.header{
+	text-align: center;
+	font-variant: normal;
+	font-weight: bold;
+	font-size: 28px;
+}
+
