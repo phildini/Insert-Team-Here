@@ -1,0 +1,12 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<html>
+<head>
+        <title>{% block title %}{% endblock %} on InsertTeamHere</title>
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}teams.css" />
+</head>
+
+<body>
+	{% block content %}{% endblock %}
+</body>
+</html>

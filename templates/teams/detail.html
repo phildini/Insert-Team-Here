@@ -1,0 +1,22 @@
+{% extends "teams.html" %}
+
+{% block title %}{{team.team_name}}{%endblock%}
+
+
+{%block left%}
+<h1>{{team.team_name}}</h1>
+
+{% if status_message %}<p><strong>{{ status_message }}</strong></p>{% endif %}
+
+<p>Genre: {{team.genre}}</p>
+<p>Type: {{team.project_type}}</p>
+
+<strong>Location:</strong> {{team.city}}, {{team.state}}
+
+<p>
+
+<a href="/teams/{{team.id}}/edit">Edit Team Info</a>
+<p>
+<a href="/teams/">Team List</a>
+{%endblock%}
+
