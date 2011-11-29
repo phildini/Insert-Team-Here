@@ -94,3 +94,5 @@ table .Login_panel {
     /*margin:3px;*/
     padding:5px;
 }
+#member_table a:link, #member_table a:hover{color:#32D0DE;}
+#member_table a:visited{color:#C8F2F6;}

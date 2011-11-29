@@ -2,17 +2,48 @@
 
 {%block title%}List of Teams{%endblock%}
 
-{%block left%}
+{%block main%}
 <h1>List of Teams on InsertTeamHere</h1>
-
+<!--  filtering..... -->
+<p><b>Filter by:</b>
+    <select name="Location" onchange="window.location=\window.location.pathname+this.options[this.selectedIndex].value">
+        <option value="" selected="selected">--Location--</option>
+        {% for t in latest_team_list%}
+            {%if t.state%}
+                <option {%if t.state%} value="{{t.state}}">{{t.state}}</option>
+            {%endif%}
+        {%endfor%}
+    </select>
+</p>
+<!-- end filtering -->
 {% if latest_team_list %}
-	<ul>
+	<table id="member_table">
 	{% for team in latest_team_list %}
 		{% if team.team_name %}
-			<li><a href="/teams/{{ team.id }}/">{{ team.team_name }}</a></li>
+			<tr><td><b><a href="/teams/{{ team.id }}/">{{ team.team_name }}</a></b><br>
+			{% if team.city or team.state%}
+                {%if team.city%}
+                    {{team.city}}
+                {%endif%}
+                {%if team.city and team.state%}, {%endif%}
+                {% if team.state%}
+                    {{team.state}}
+                {%endif%}<br>
+            {%endif%}
+            {% if team.project_type or team.genre%}
+                {% if team.project_type%}
+                    {{team.project_type}}
+                {%endif%}
+                {% if team.genre and team.project_type%} - {%endif%}
+                {%if team.genre%}
+                    {{team.genre}}
+                {%endif%}
+            {%endif%}
+            </td></tr>
+            
 		{% endif %}
 	{% endfor %}
-	</ul>
+	</table>
 {% else %}
 	<p>No teams are available.</p>
 {% endif %}
