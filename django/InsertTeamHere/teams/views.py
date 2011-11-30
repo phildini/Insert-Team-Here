@@ -12,7 +12,7 @@ class TeamEdit(forms.Form):
 	genre = forms.CharField(max_length=100, required=False)
         project_type = forms.CharField(max_length=100, required=False)
         city = forms.CharField(max_length=200, required=False)
-        state = forms.CharField(max_length=100, required=False)
+        state = forms.CharField(max_length=2, required=False)
 
 def index(request):
 	latest_team_list = Team.objects.all().order_by('-creation_date')[:100]

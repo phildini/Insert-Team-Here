@@ -6,7 +6,7 @@ class Team(models.Model):
 	genre = models.CharField(max_length=100)
 	project_type = models.CharField(max_length=100)
 	city = models.CharField(max_length=200)
-	state = models.CharField(max_length=100)
+	state = models.CharField(max_length=2)
 
 	def __unicode__(self):
 		return self.team_name
