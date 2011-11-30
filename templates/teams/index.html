@@ -10,7 +10,7 @@
         <option value="" selected="selected">--Location--</option>
         {% for t in latest_team_list%}
             {%if t.state%}
-                <option {%if t.state%} value="{{t.state}}">{{t.state}}</option>
+                <option value="{{t.state}}">{{t.state}}</option>
             {%endif%}
         {%endfor%}
     </select>
