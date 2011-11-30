@@ -35,7 +35,7 @@ body{
 	height:100px;
 	overflow: hidden;
 	background-color:#2e367d;
-	border-radius:25px;
+	border-radius:15px;
 }
 .footer_block{
 	/*background-image:url(images/footer_banner.jpg);*/
@@ -45,7 +45,7 @@ body{
 	width:900px;
 	height:106px;
 	background-color: #2e367d;
-	border-radius:25px;
+	border-radius:15px;
 }
 
 /* used on all pages that have a team or member listing */

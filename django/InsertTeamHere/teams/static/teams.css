@@ -36,6 +36,13 @@ body{
 	overflow: hidden;
 	background-color:#2e367d;
 	border-radius:25px;
+	color: white;
+}
+.header_block h1{
+	color: white;
+	font-family:"Comic Sans MS";
+	font-size: 44px;
+	margin: 20px 30px;
 }
 .footer_block{
 	/*background-image:url(images/footer_banner.jpg);*/
@@ -43,9 +50,15 @@ body{
 	border:0px;
 	padding:0px;
 	width:900px;
-	height:106px;
+	height:75px;
 	background-color: #2e367d;
 	border-radius:25px;
+}
+.footer_block h4{
+	margin: 20px auto;
+	width:70%;
+	font-family:"Comic Sans MS";
+	color: white;
 }
 
 /* used on all pages that have a team or member listing */
