@@ -1,4 +1,3 @@
-
 body{
     font-variant: normal;
     font-style: normal;
@@ -9,17 +8,26 @@ body{
     text-align: left;
     color: #3f3f3f;
 }
-.main {
-    background-color:#a3ffff;
+.container {
+    /*background-color:#ffffff;*/
 	margin-left: auto;
 	margin-bottom: auto;
 	margin-right: auto;
 	margin-top: auto;
 	width: 900px; 
 	overflow: hidden;
+	border-radius:25px;
+}
+.main{
+    background-color:#ffffff;
+	margin: auto;
+	width: 850px; 
+	overflow: hidden;
+	border-radius:25px;
+    padding: 15px 25px;
 }
 .header_block{
-    position:relative;
+    /*position:relative;*/
 	background-image:url(images/header_banner.jpg);
 	border:0px;
 	padding:0px;
@@ -27,64 +35,47 @@ body{
 	height:100px;
 	overflow: hidden;
 	background-color:#2e367d;
+	border-radius:25px;
+	color: white;
 }
-.left {
-	float: left;
-	width: 720px;
-	padding-bottom: 10px 0;
-	margin: 0 15px;
-}
-.right {
-	padding: 10px 0;
-	width: 120px;
-	float: left;
-	margin: 0 15px;
+.header_block h1{
+	color: white;
+	font-family:"Comic Sans MS";
+	font-size: 44px;
+	margin: 20px 30px;
 }
 .footer_block{
-	/*background-image:url(images/header_banner.jpg);*/
+	/*background-image:url(images/footer_banner.jpg);*/
 	float:left;
 	border:0px;
 	padding:0px;
 	width:900px;
-	height:106px;
+	height:75px;
 	background-color: #2e367d;
+	border-radius:25px;
 }
-.main_login{
-    background-color:#ffffff;
-    /*padding-top: 150px;*/
-	margin-left: auto;
-	margin-bottom: auto;
-	margin-right: auto;
-	margin-top: 150px;
-	width: 600px;
-	overflow: hidden;
-}
-.login {
-    padding: 10px 0;
-    width: 300px;
-    float: left;
-
+.footer_block h4{
+	margin: 20px auto;
+	width:70%;
+	font-family:"Comic Sans MS";
+	color: white;
 }
 
-
-
-
-
-
-table .Login_panel {
-    border-style: ridge;
-    border-width: 6px;
+/* used on all pages that have a team or member listing */
+#member_table{ margin:10px 75px; width:450px;}
+#member_table td,#member_table th{ 
+    background:#2e367d;
+    border-radius: 15px;
+    color:#ffffff;
+    margin:5px 5px;
+    padding:5px 10px;
 }
-
-.Login_panel tr{
-	text-align: center;
-	width: 50px;
+#member_table th{ width: 100px;}
+#member_table img{
+    width: 100px;
+    height:100px;
+    /*margin:3px;*/
+    padding:5px;
 }
-
-.header{
-	text-align: center;
-	font-variant: normal;
-	font-weight: bold;
-	font-size: 28px;
-}
-
+#member_table a:link, #member_table a:hover{color:#32D0DE;}
+#member_table a:visited{color:#C8F2F6;}
