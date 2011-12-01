@@ -1,7 +1,6 @@
 from django.db import models
 
 STATE_CHOICES=(
-	('', ''),
 	('AL', 'Alabama'),
 	('AK','Alaska'),
 	('AZ', 'Arizona'),
