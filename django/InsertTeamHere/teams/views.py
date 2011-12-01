@@ -8,7 +8,7 @@ from django import forms
 import datetime
 
 STATE_CHOICES=(
-	('', ''),
+	('', '--State--'),
 	('AL', 'Alabama'),
 	('AK','Alaska'),
 	('AZ', 'Arizona'),
@@ -68,10 +68,23 @@ class TeamEdit(forms.Form):
         city = forms.CharField(max_length=200, required=False)
         state = forms.ChoiceField(choices=STATE_CHOICES)
 
+class SearchBar(forms.Form):
+	state= forms.ChoiceField(choices=STATE_CHOICES)
+	#genre= forms.ChoiceField()
+	#project_type=forms.ChoiceField()
+
 def index(request):
 	states=STATE_CHOICES
 	latest_team_list = Team.objects.all().order_by('-creation_date')[:100]
-	return render_to_response('teams/index.html', {'latest_team_list': latest_team_list})
+	if request.method=='GET':
+		form = SearchBar(request.GET)
+		if form.is_valid():
+			curr_state=form.cleaned_data['state']
+			latest_team_list=Team.objects.filter(state=form.cleaned_data['state'])
+		return render_to_response('teams/index.html', {'latest_team_list': latest_team_list, 'form':form,})
+	else:
+		form = SearchBar()
+	return render_to_response('teams/index.html', {'latest_team_list': latest_team_list, 'form':form,})
 
 def detail(request, team_id):
 	t = get_object_or_404(Team, pk=team_id)

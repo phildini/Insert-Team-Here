@@ -21,10 +21,10 @@ body{
 .main{
     background-color:#ffffff;
 	margin: auto;
-	width: 870px; 
+	width: 850px; 
 	overflow: hidden;
 	border-radius:25px;
-    padding: 0 15px;
+    padding: 15px 25px;
 }
 .header_block{
     /*position:relative;*/

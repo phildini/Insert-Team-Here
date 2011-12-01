@@ -20,7 +20,7 @@ body{
 }
 .main{
     background-color:#ffffff;
-	margin: auto;
+	margin: 20px auto;
 	width: 870px; 
 	overflow: hidden;
 	border-radius:25px;
