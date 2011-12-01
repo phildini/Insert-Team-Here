@@ -4,21 +4,15 @@
 
 {%block main%}
 <h1>List of Teams on InsertTeamHere</h1>
-
 <!--  filtering..... -->
-<p><form action="/teams/" method="get">
+<p><form action="/teams/" method="get"> {% csrf_token %}
 	<b>Filter by:</b>
-		{{ form.state }}
+		{%if curr_state%}
+			<p>curr state? {{curr_state}}</p>
+		{%endif%}
+		{{ form.state }}{{form.project_type}}{{form.genre}}
 		<input type="submit" value"Filter" />
 	</form>
-<!-- end filering -->
-
-        {% for t in latest_team_list%}
-            {%if t.state%}
-                <option value="{{t.state}}">{{t.state}}</option>
-            {%endif%}
-        {%endfor%}
-    </select>#} -->
 </p>
 <!-- end filtering -->
 {% if latest_team_list %}

@@ -8,7 +8,7 @@ from django import forms
 import datetime
 
 STATE_CHOICES=(
-	('', '--State--'),
+	('None', '--State--'),
 	('AL', 'Alabama'),
 	('AK','Alaska'),
 	('AZ', 'Arizona'),
@@ -61,30 +61,53 @@ STATE_CHOICES=(
 	('WY', 'Wyoming'),
 )
 
+GENRE_CHOICES=(
+	('None', '--Genre--'),
+	('Action','Action'),
+	('Adventure','Adventure'),
+	('Platformer','Platformer'),
+	('Puzzle','Puzzle'),
+	('Strategy','Strategy'),
+	('RPG','RPG')
+)
+
+PROJ_CHOICES=(
+	('None', '--Project Type--'),
+	('Video Game','Video Game'),
+	('Web Application','Web Application'),
+	('Multimedia Project', 'Multimedia Project')
+)
+
 class TeamEdit(forms.Form):
 	name = forms.CharField(max_length=200, required=False)
-	genre = forms.CharField(max_length=100, required=False)
-        project_type = forms.CharField(max_length=100, required=False)
-        city = forms.CharField(max_length=200, required=False)
-        state = forms.ChoiceField(choices=STATE_CHOICES)
+	genre = forms.ChoiceField(choices=GENRE_CHOICES, required=False)
+	project_type = forms.ChoiceField(choices=PROJ_CHOICES, required=False)
+	city = forms.CharField(max_length=200, required=False)
+	state = forms.ChoiceField(choices=STATE_CHOICES, required=False)
 
 class SearchBar(forms.Form):
 	state= forms.ChoiceField(choices=STATE_CHOICES)
-	#genre= forms.ChoiceField()
-	#project_type=forms.ChoiceField()
+	genre= forms.ChoiceField(choices=GENRE_CHOICES)
+	project_type=forms.ChoiceField(choices=PROJ_CHOICES)
 
 def index(request):
-	states=STATE_CHOICES
-	latest_team_list = Team.objects.all().order_by('-creation_date')[:100]
+	latest_team_list = Team.objects.all()
 	if request.method=='GET':
 		form = SearchBar(request.GET)
 		if form.is_valid():
 			curr_state=form.cleaned_data['state']
-			latest_team_list=Team.objects.filter(state=form.cleaned_data['state'])
-		return render_to_response('teams/index.html', {'latest_team_list': latest_team_list, 'form':form,})
+			curr_genre=form.cleaned_data['genre']
+			curr_proj=form.cleaned_data['project_type']
+			if curr_state!='None':
+				latest_team_list=latest_team_list.filter(state__exact=curr_state)
+			if curr_genre!='None':
+				latest_team_list=latest_team_list.filter(genre__exact=curr_genre)
+			if curr_proj!='None':
+				latest_team_list=latest_team_list.filter(project_type__exact=curr_proj)
+		return render_to_response('teams/index.html', {'latest_team_list':latest_team_list.order_by('-creation_date'), 'form':form,})
 	else:
 		form = SearchBar()
-	return render_to_response('teams/index.html', {'latest_team_list': latest_team_list, 'form':form,})
+	return render_to_response('teams/index.html', {'latest_team_list': latest_team_list.order_by('-creation_date'), 'form':form,})
 
 def detail(request, team_id):
 	t = get_object_or_404(Team, pk=team_id)
@@ -109,6 +132,7 @@ def edit(request, team_id):
 			return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
 	else:
 		form = TeamEdit()
+		#form.name.value=t.team_name
 	return render_to_response('teams/edit.html', {'form':form, 'team':t}, context_instance=RequestContext(request))
 
 def add(request):

@@ -53,12 +53,26 @@ STATE_CHOICES=(
 	('WI', 'Wisconsin'),
 	('WY', 'Wyoming'),
 )
+GENRE_CHOICES=(
+	('Action','Action'),
+	('Adventure','Adventure'),
+	('Platformer','Platformer'),
+	('Puzzle','Puzzle'),
+	('Strategy','Strategy'),
+	('RPG','RPG')
+)
+PROJ_CHOICES=(
+	('Video Game','Video Game'),
+	('Web Application','Web Application'),
+	('Multimedia Project', 'Multimedia Project')
+)
+
 
 class Team(models.Model):
 	team_name = models.CharField(max_length=200)
 	creation_date = models.DateTimeField('date created')
-	genre = models.CharField(max_length=100)
-	project_type = models.CharField(max_length=100)
+	genre = models.CharField(max_length=1, choices=GENRE_CHOICES)
+	project_type = models.CharField(max_length=1, choices=PROJ_CHOICES)
 	city = models.CharField(max_length=200)
 	state = models.CharField(max_length=1, choices=STATE_CHOICES)
 
