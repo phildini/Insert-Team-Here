@@ -14,14 +14,11 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-<<<<<<< HEAD
     #url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
-=======
     url(r'^admin/', include(admin.site.urls)),
 
     #url(r'^accounts/', include('registration.backends.simple.urls')),
->>>>>>> master
 
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.STATIC_ROOT}),
 
