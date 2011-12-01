@@ -68,7 +68,8 @@ GENRE_CHOICES=(
 	('Platformer','Platformer'),
 	('Puzzle','Puzzle'),
 	('Strategy','Strategy'),
-	('RPG','RPG')
+	('RPG','RPG'),
+	('Social Network', 'Social Network'),
 )
 
 PROJ_CHOICES=(

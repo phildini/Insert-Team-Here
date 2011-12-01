@@ -8,8 +8,8 @@
 
 {% if status_message %}<p><strong>{{ status_message }}</strong></p>{% endif %}
 
-<p>Genre: {%ifnotequal team.genre 'None'%}{{team.genre}}{%endifnotequal%}</p>
 <p>Type: {%ifnotequal team.project_type 'None'%}{{team.project_type}}{%endifnotequal%}</p>
+<p>Genre: {%ifnotequal team.genre 'None'%}{{team.genre}}{%endifnotequal%}</p>
 
 <p><strong>Location:</strong>
 {%if team.city%}{{team.city}}{%endif%}
