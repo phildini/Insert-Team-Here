@@ -84,7 +84,7 @@ class TeamEdit(forms.Form):
 	project_type = forms.ChoiceField(choices=PROJ_CHOICES, required=False)
 	city = forms.CharField(max_length=200, required=False)
 	state = forms.ChoiceField(choices=STATE_CHOICES, required=False)
-
+	
 class SearchBar(forms.Form):
 	state= forms.ChoiceField(choices=STATE_CHOICES)
 	genre= forms.ChoiceField(choices=GENRE_CHOICES)
@@ -115,8 +115,16 @@ def detail(request, team_id):
 
 def edit(request, team_id):
 	t = get_object_or_404(Team, pk=team_id)
+	
+	class TeamEdit_specific(forms.Form):
+		name = forms.CharField(max_length=200, required=False, initial=t.team_name)
+		genre = forms.ChoiceField(choices=GENRE_CHOICES, required=False, initial=t.genre)
+		project_type = forms.ChoiceField(choices=PROJ_CHOICES, required=False, initial=t.project_type)
+		city = forms.CharField(max_length=200, required=False, initial=t.city)
+		state = forms.ChoiceField(choices=STATE_CHOICES, required=False, initial=t.state)
+		
 	if request.method == 'POST':
-		form = TeamEdit(request.POST)
+		form = TeamEdit_specific(request.POST)
 		if form.is_valid():
 			if form.cleaned_data['name']:
 				t.team_name = form.cleaned_data['name']
@@ -131,7 +139,7 @@ def edit(request, team_id):
 			t.save()
 			return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
 	else:
-		form = TeamEdit()
+		form = TeamEdit_specific()
 		#form.name.value=t.team_name
 	return render_to_response('teams/edit.html', {'form':form, 'team':t}, context_instance=RequestContext(request))
 
