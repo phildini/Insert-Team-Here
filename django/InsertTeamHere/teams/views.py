@@ -68,8 +68,7 @@ GENRE_CHOICES=(
 	('Platformer','Platformer'),
 	('Puzzle','Puzzle'),
 	('Strategy','Strategy'),
-	('RPG','RPG'),
-	('Social Network', 'Social Network'),
+	('RPG','RPG')
 )
 
 PROJ_CHOICES=(
@@ -127,19 +126,16 @@ def edit(request, team_id):
 	if request.method == 'POST':
 		form = TeamEdit_specific(request.POST)
 		if form.is_valid():
-			if form.cleaned_data['name']!=t.team_name:
+			if form.cleaned_data['name']:
 				t.team_name = form.cleaned_data['name']
-			if form.cleaned_data['genre']!='None' or form.cleaned_data['genre']!=t.genre:
-				t.genre = form.cleaned_data['genre']
-			if form.cleaned_data['project_type']!='None' or form.cleaned_data['project_type']!=t.project_type:
-				t.project_type = form.cleaned_data['project_type']
+			if form.cleaned_data['genre']:
+                                t.genre = form.cleaned_data['genre']
+			if form.cleaned_data['project_type']:
+                                t.project_type = form.cleaned_data['project_type']
 			if form.cleaned_data['city']:
-				t.city = form.cleaned_data['city']
-			if form.cleaned_data['state']!=t.state:
-				if form.cleaned_data['state']=='None':
-					t.state='None'
-				else:
-					t.state = form.cleaned_data['state']
+                                t.city = form.cleaned_data['city']
+			if form.cleaned_data['state']:
+                                t.state = form.cleaned_data['state']
 			t.save()
 			return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
 	else:
@@ -155,13 +151,13 @@ def add(request):
                 if form.is_valid():
                         if form.cleaned_data['name']:
                                 t.team_name = form.cleaned_data['name']
-                        if form.cleaned_data['genre']!='None':
+                        if form.cleaned_data['genre']:
                                 t.genre = form.cleaned_data['genre']
-                        if form.cleaned_data['project_type']!='None':
+                        if form.cleaned_data['project_type']:
                                 t.project_type = form.cleaned_data['project_type']
                         if form.cleaned_data['city']:
                                 t.city = form.cleaned_data['city']
-                        if form.cleaned_data['state']!='None':
+                        if form.cleaned_data['state']:
                                 t.state = form.cleaned_data['state']
                         t.save()
                         return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
