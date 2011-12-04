@@ -7,9 +7,6 @@
 <!--  filtering..... -->
 <p><form action="/teams/" method="get"> {% csrf_token %}
 	<b>Filter by:</b>
-		{%if curr_state%}
-			<p>curr state? {{curr_state}}</p>
-		{%endif%}
 		{{ form.state }}{{form.project_type}}{{form.genre}}
 		<input type="submit" value"Filter" />
 	</form>
@@ -20,24 +17,24 @@
 	{% for team in latest_team_list %}
 		{% if team.team_name %}
 			<tr><td><b><a href="/teams/{{ team.id }}/">{{ team.team_name }}</a></b><br>
-			{% if team.city or team.state%}
-                {%if team.city%}
+			{% if team.city or team.state != 'None' %}
+                {% if team.city %}
                     {{team.city}}
-                {%endif%}
-                {%if team.city and team.state%}, {%endif%}
-                {% if team.state%}
+                {% endif %}
+                {% if team.city and team.state != 'None' %}, {%endif%}
+                {% if team.state %}
                     {{team.state}}
-                {%endif%}<br>
-            {%endif%}
-            {% if team.project_type or team.genre%}
-                {% if team.project_type%}
+                {% endif %}<br>
+            {% endif %}
+            {% if team.project_type != 'None' or team.genre != 'None'%}
+                {% if team.project_type != 'None'%}
                     {{team.project_type}}
-                {%endif%}
-                {% if team.genre and team.project_type%} - {%endif%}
-                {%if team.genre%}
+                {% endif %}
+                {% if team.genre != 'None' and team.project_type != 'None'%} - {% endif %}
+                {% if team.genre != 'None' %}
                     {{team.genre}}
-                {%endif%}
-            {%endif%}
+                {% endif %}
+            {% endif %}
             </td></tr>
             
 		{% endif %}

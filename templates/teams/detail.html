@@ -8,10 +8,13 @@
 
 {% if status_message %}<p><strong>{{ status_message }}</strong></p>{% endif %}
 
-<p>Genre: {{team.genre}}</p>
-<p>Type: {{team.project_type}}</p>
+<p>Type: {%ifnotequal team.project_type 'None'%}{{team.project_type}}{%endifnotequal%}</p>
+<p>Genre: {%ifnotequal team.genre 'None'%}{{team.genre}}{%endifnotequal%}</p>
 
-<p><strong>Location:</strong> {{team.city}}, {{team.state}}<br></p>
+<p><strong>Location:</strong>
+{%if team.city%}{{team.city}}{%endif%}
+{%if team.city and team.state%}, {%endif%}
+{%ifnotequal team.state 'None'%}{{team.state}}{%endifnotequal%}<br></p>
 <p><a href="/teams/{{team.id}}/edit">Edit Team Info</a><br>
 <a href="/teams/">Return to the Team List</a></p>
 {%endblock%}
