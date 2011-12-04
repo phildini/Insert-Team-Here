@@ -17,11 +17,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     #url(r'^accounts/', include('registration.backends.simple.urls')),
-<<<<<<< HEAD
-=======
-    url(r'^accounts/', include('registration.urls')),
->>>>>>> d32c24d50e13941f3c6963e96e2b33fd8863310a
->>>>>>> parent of 455c753... more stuff...?
 
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.STATIC_ROOT}),
 
