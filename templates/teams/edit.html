@@ -4,13 +4,13 @@
 
 {% block main %}
 	<h1>{{team.team_name}}</h1>
-	<form action="/teams/{{team.id}}/edit/" method="post">{% csrf_token %}
-		{% for field in form %}
+	<form action="/teams/{{team.id}}/edit/" method="post">{% csrf_token %}{{form.as_p}}
+		<!-- {# {% for field in form %}
 			<div class="fieldWrapper">
 				{{field.errors}}
 				{{field.label_tag}}: {{field}}
 			</div>
-		{%endfor%}
+		{%endfor%}#}-->
 		<input type="submit" value="Submit" />
 	</form>
 	<a href="/teams/">Return to the Team List</a>
