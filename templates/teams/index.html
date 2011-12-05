@@ -20,21 +20,21 @@
 	{% for team in latest_team_list %}
 		{% if team.team_name %}
 			<tr><td><b><a href="/teams/{{ team.id }}/">{{ team.team_name }}</a></b><br>
-			{% if team.city or team.state%}
+			{% if team.city or team.state != 'None'%}
                 {%if team.city%}
                     {{team.city}}
                 {%endif%}
-                {%if team.city and team.state%}, {%endif%}
-                {% if team.state%}
+                {%if team.city and team.state != 'None'%}, {%endif%}
+                {% if team.state != 'None'%}
                     {{team.state}}
                 {%endif%}<br>
             {%endif%}
-            {% if team.project_type or team.genre%}
-                {% if team.project_type%}
+            {% if team.project_type != 'None' or team.genre != 'None'%}
+                {% if team.project_type != 'None'%}
                     {{team.project_type}}
                 {%endif%}
-                {% if team.genre and team.project_type%} - {%endif%}
-                {%if team.genre%}
+                {% if team.genre != 'None' and team.project_type != 'None'%} - {%endif%}
+                {%if team.genre != 'None'%}
                     {{team.genre}}
                 {%endif%}
             {%endif%}
