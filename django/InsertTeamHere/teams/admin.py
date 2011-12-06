@@ -3,7 +3,7 @@ from django.contrib import admin
 
 class TeamAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None, {'fields': ('creation_date','team_name',('project_type','genre'),('city', 'state'))}),
+		(None, {'fields': ('creation_date','team_name',('project_type','genre'),('city', 'state'), 'members' )}),
     ]
 
 admin.site.register(Team, TeamAdmin)

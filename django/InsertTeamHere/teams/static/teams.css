@@ -44,6 +44,24 @@ body{
 	font-size: 44px;
 	margin: 20px 30px;
 }
+.menu_block{
+	padding-left: 30px;
+	padding-bottom: 10px;
+	padding-right: 30px;
+	padding-top: 10px;
+	background-color: #404ab1;
+	color:white;
+	border-radius:15px;	
+}
+.menu_block a:link, a:hover, a:visited{
+	font-weight: bold; 
+	text-decoration: none; 
+	color: white; 
+	font-family: sans-serif, "Lucida Grande", Verdana, Arial;
+}
+.menu_block table td{
+	width:100px;
+}
 .footer_block{
 	/*background-image:url(images/footer_banner.jpg);*/
 	float:left;
