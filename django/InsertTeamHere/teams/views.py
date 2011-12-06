@@ -79,6 +79,19 @@ PROJ_CHOICES=(
 	('Web Application','Web Application'),
 	('Multimedia Project', 'Multimedia Project')
 )
+TALENT_CHOICES=(
+	('None', '--Talents--'),
+	('Music','Music'),
+	('Art', 'Art'),
+	('Programming', 'Programming')
+)
+EXP_CHOICES=(
+	('None', '--Experience--'),
+	('Beginner', 'Beginner'),
+	('Intermediate', 'Intermediate'),
+	('Advanced', 'Advanced'),
+	('Expert', 'Expert'),
+)
 
 class TeamEdit(forms.Form):
 	name = forms.CharField(max_length=200, required=False)
@@ -86,6 +99,8 @@ class TeamEdit(forms.Form):
 	project_type = forms.ChoiceField(choices=PROJ_CHOICES, required=False)
 	city = forms.CharField(max_length=200, required=False)
 	state = forms.ChoiceField(choices=STATE_CHOICES, required=False)
+	seeking_talent = forms.ChoiceField(choices=TALENT_CHOICES, required=False)
+	seeking_exp = forms.ChoiceField(choices=EXP_CHOICES, required=False)
 	
 class SearchBar(forms.Form):
 	state= forms.ChoiceField(choices=STATE_CHOICES)
@@ -129,6 +144,8 @@ def edit(request, team_id):
 		project_type = forms.ChoiceField(choices=PROJ_CHOICES, required=False, initial=t.project_type)
 		city = forms.CharField(max_length=200, required=False, initial=t.city)
 		state = forms.ChoiceField(choices=STATE_CHOICES, required=False, initial=t.state)
+		seeking_talent = forms.ChoiceField(choices=TALENT_CHOICES, required=False)
+		seeking_exp = forms.ChoiceField(choices=EXP_CHOICES, required=False)
 		
 	if request.method == 'POST':
 		form = TeamEdit_specific(request.POST)
@@ -146,6 +163,19 @@ def edit(request, team_id):
 					t.state='None'
 				else:
 					t.state = form.cleaned_data['state']
+			if form.cleaned_data['seeking_talent']!='None' and form.cleaned_data['seeking_exp']!='None':
+				#t.seeking_talent = form.cleaned_data['seeking_talent']
+				t.seeking.create(talent=form.cleaned_data['seeking_talent'], experience= form.cleaned_data['seeking_exp'])
+			"""if form.cleaned_data['seeking_talent']!=t.seeking_talent:
+				if form.cleaned_data['seeking_talent']=='None':
+					t.seeking_talent='None'
+				else:
+					t.seeking_talent = form.cleaned_data['seeking_talent']
+			if form.cleaned_data['seeking_exp']!=t.seeking_exp:
+				if form.cleaned_data['seeking_exp']=='None':
+					t.seeking_exp='None'
+				else:
+					t.seeking_exp = form.cleaned_data['seeking_exp']"""
 			t.save()
 			return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
 	else:
@@ -170,6 +200,9 @@ def add(request):
                                 t.city = form.cleaned_data['city']
                         if form.cleaned_data['state']!='None':
                                 t.state = form.cleaned_data['state']
+                        if form.cleaned_data['seeking_talent']!='None' and form.cleaned_data['seeking_exp']!='None':
+                                #t.seeking_talent = form.cleaned_data['seeking_talent']
+                                t.seeking.create(talent=form.cleaned_data['seeking_talent'], experience= form.cleaned_data['seeking_exp'])
                         t.owner=get_object_or_404(User, pk=request.user.id)
                         t.save()
                         return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))

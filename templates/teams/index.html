@@ -36,8 +36,9 @@
                 {% if team.genre != 'None' and team.project_type != 'None'%} - {%endif%}
                 {%if team.genre != 'None'%}
                     {{team.genre}}
-                {%endif%}
+                {%endif%}<br>
             {%endif%}
+            {% if team.seeking%} <i>Seeking Members</i>{%endif%}
             </td></tr>
             
 		{% endif %}

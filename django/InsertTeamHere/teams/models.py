@@ -67,6 +67,9 @@ PROJ_CHOICES=(
 	('Multimedia Project', 'Multimedia Project')
 )
 
+class Roles(models.Model):
+	talent=models.CharField(max_length=200)
+	experience=models.CharField(max_length=200)
 
 class Team(models.Model):
 	# ******************
@@ -79,6 +82,8 @@ class Team(models.Model):
 	project_type = models.CharField(max_length=1, choices=PROJ_CHOICES)
 	city = models.CharField(max_length=200)
 	state = models.CharField(max_length=1, choices=STATE_CHOICES)
+	
+	seeking=models.ManyToManyField(Roles)
 
 	def __unicode__(self):
 		return self.team_name
@@ -86,3 +91,4 @@ class Team(models.Model):
 #class Team_Members(models.Model):
 #	members=models.ForeignKey(User)
 #	team=models.ForeignKey(Team)
+
