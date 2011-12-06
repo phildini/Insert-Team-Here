@@ -26,6 +26,8 @@ body{
 	border-radius:25px;
     padding: 15px 25px;
 }
+.main a:hover{color:blue;}
+.main a:visited{color:purple;}
 .header_block{
     /*position:relative;*/
 	background-image:url(images/header_banner.jpg);
@@ -61,6 +63,7 @@ body{
 }
 .menu_block table td{
 	width:100px;
+	text-align:center;
 }
 .footer_block{
 	/*background-image:url(images/footer_banner.jpg);*/

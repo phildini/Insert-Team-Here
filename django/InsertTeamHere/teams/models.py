@@ -71,6 +71,7 @@ PROJ_CHOICES=(
 class Team(models.Model):
 	# ******************
 	members=models.ManyToManyField(User)
+	#owner=models.ForeignKey(User)
 	# *************
 	team_name = models.CharField(max_length=200)
 	creation_date = models.DateTimeField('date created')

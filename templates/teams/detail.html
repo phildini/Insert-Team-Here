@@ -17,12 +17,22 @@
 {%ifnotequal team.state 'None'%}{{team.state}}{%endifnotequal%}<br></p>
 
 {%if team.members%}
-<p><i>members should be here</i></p>
-{#{%for t_mem in team.members.all%}<p>{{t_mem}}</p>{%endfor%}#}
+<h2>Members</h2>
+<p><!--{#{%if team.owner %}
+	<b>{{team.owner}}</b><br>
+	{%endif%}#}-->
+<ul>{%for t_mem in team.members.all%}<li><!--<a href="/accounts/profile/{{t_mem.id}}">    -->{{t_mem}}</li>{%endfor%}</ul></p>
 {%endif%}
-
-<p><a href="/teams/{{team.id}}/edit">Edit Team Info</a><br>
+<p>
+{%if user.id not in team.members.all %}
+	<a href="/teams/{{team.id}}/join">Join this team</a><br><br>
+{%endif%}
+{%if user.id in team.members.all%}
+	<a href="/teams/{{team.id}}/edit">Edit Team Info</a><br><br>
+{%endif%}
 <a href="/teams/">Return to the Team List</a></p>
-<p><a href="/teams/{{team.id}}/join">Join this team</a></p>
+<br>
+<br>
+{{user.id}} {{user}}
 {%endblock%}
 

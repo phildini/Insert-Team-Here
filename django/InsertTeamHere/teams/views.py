@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
 from teams.models import Team
+from django.contrib.auth.models import User
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django import forms
 import datetime
@@ -162,8 +163,19 @@ def add(request):
                                 t.city = form.cleaned_data['city']
                         if form.cleaned_data['state']!='None':
                                 t.state = form.cleaned_data['state']
+                        t.owner=get_object_or_404(User, pk=request.user.id)
                         t.save()
                         return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
         else:
                 form = TeamEdit()
         return render_to_response('teams/edit.html', {'form':form, 'team':t}, context_instance=RequestContext(request))
+
+def join(request, team_id):
+	t= get_object_or_404(Team, pk=team_id)
+	curr_user= get_object_or_404(User, pk=request.user.id)
+	if curr_user in t.members.all():
+		return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
+	else:
+		t.members.add(curr_user)
+		t.save()
+		return HttpResponseRedirect(reverse('teams.views.detail', args=(t.id,)))
