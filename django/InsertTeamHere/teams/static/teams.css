@@ -62,7 +62,8 @@ body{
 	font-family: sans-serif, "Lucida Grande", Verdana, Arial;
 }
 .menu_block table td{
-	width:100px;
+	width:auto;
+	padding: 0px 10px;
 	text-align:center;
 }
 .footer_block{

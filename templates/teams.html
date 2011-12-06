@@ -14,7 +14,15 @@
 				<tr>
 					<td><a href="/teams/">Teams List</a></td>
 					<td><a href="/teams/about/">About Us</a></td>
-					<td><a href="/accounts/profile/{{user.id}}">{{user}}'s Profile</a></td>
+					{%if user.is_authenticated %}
+						<td><a href="/accounts/profile/{{user.id}}">{{user}}'s Profile</a></td>
+						<td><a href="/accounts/logout/">Logout</a></td>
+					{%endif%}
+					{%if not user.is_authenticated %}
+						<td><a href="/accounts/login/">Login</a></td>
+						<td><a href="/accounts/register">Register</a></td>
+					{%endif%}
+					
 				</tr>
 			</table>
 		</div> 

@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from teams.models import Team
 from django.contrib.auth.models import User
 from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django import forms
 import datetime
 
@@ -114,6 +115,7 @@ def detail(request, team_id):
 	t = get_object_or_404(Team, pk=team_id)
 	return render_to_response('teams/detail.html', {'team': t}, context_instance=RequestContext(request))
 
+@login_required
 def edit(request, team_id):
 	t = get_object_or_404(Team, pk=team_id)
 	
@@ -147,6 +149,7 @@ def edit(request, team_id):
 		#form.name.value=t.team_name
 	return render_to_response('teams/edit.html', {'form':form, 'team':t}, context_instance=RequestContext(request))
 
+@login_required
 def add(request):
 	t = Team(creation_date=datetime.datetime.now())
 	t.save()
@@ -170,6 +173,7 @@ def add(request):
                 form = TeamEdit()
         return render_to_response('teams/edit.html', {'form':form, 'team':t}, context_instance=RequestContext(request))
 
+@login_required
 def join(request, team_id):
 	t= get_object_or_404(Team, pk=team_id)
 	curr_user= get_object_or_404(User, pk=request.user.id)
