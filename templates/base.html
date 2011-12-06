@@ -1,9 +1,20 @@
-<!doctype html>
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
 <html>
-    <head>
-        <title>{% block title %}{% endblock %}</title>
-    </head>
-    <body>
-        {% block content %}{% endblock %}
-    </body>
+<head>
+        <title>{% block title %}{% endblock %} on InsertTeamHere</title>
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}teams.css" />
+</head>
+
+<body>
+        <div class="container">
+                <div class="header_block" onclick="javascript: window.location.href = 'http://www.insertteamhere.com';" ><h1>Insert Team Here</h1></div>
+                <div class="main">
+                {% block content %}{% endblock %}
+                </div>
+                <div class="footer_block">
+                <h4>Created by Team Treppenwitz: Linus Foster, Kelsey Hawley & Philip James</h4>
+                </div>
+        </div>
+</body>
 </html>
