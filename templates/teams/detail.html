@@ -24,13 +24,13 @@
 <ul>{%for t_mem in team.members.all%}<li><!--<a href="/accounts/profile/{{t_mem.id}}">    -->{{t_mem}}</li>{%endfor%}</ul></p>
 {%endif%}
 <p>
-{%if user.id not in team.members.all %}
-	<a href="/teams/{{team.id}}/join">Join this team</a><br><br>
-{%endif%}
-{%if user.id in team.members.all%}
+
+{%if mem != 'None' %}
 	<a href="/teams/{{team.id}}/edit">Edit Team Info</a><br><br>
 {%endif%}
+{%if mem == 'None'%}
+	<a href="/teams/{{team.id}}/join">Join this team</a><br><br>
+{%endif%}
 <a href="/teams/">Return to the Team List</a></p>
-<!--<br><br>{{user.id}} {{user}}-->
 {%endblock%}
 

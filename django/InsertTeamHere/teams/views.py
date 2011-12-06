@@ -113,7 +113,11 @@ def index(request):
 
 def detail(request, team_id):
 	t = get_object_or_404(Team, pk=team_id)
-	return render_to_response('teams/detail.html', {'team': t}, context_instance=RequestContext(request))
+	u_mem='None'
+	if request.user.is_authenticated():
+		if t.members.filter(username__exact=request.user):
+			u_mem=t.members.get(pk=request.user.id)
+	return render_to_response('teams/detail.html', {'team': t, 'mem': u_mem}, context_instance=RequestContext(request))
 
 @login_required
 def edit(request, team_id):
