@@ -16,7 +16,10 @@
 {%if team.city and team.state%}, {%endif%}
 {%ifnotequal team.state 'None'%}{{team.state}}{%endifnotequal%}<br></p>
 
-{%for t_mem in team.members.all%}<p>{{t_mem}}</p>{%endfor%}
+{%if team.members%}
+<p><i>members should be here</i></p>
+{#{%for t_mem in team.members.all%}<p>{{t_mem}}</p>{%endfor%}#}
+{%endif%}
 
 <p><a href="/teams/{{team.id}}/edit">Edit Team Info</a><br>
 <a href="/teams/">Return to the Team List</a></p>

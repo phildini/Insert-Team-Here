@@ -69,7 +69,9 @@ PROJ_CHOICES=(
 
 
 class Team(models.Model):
+	# ******************
 	members=models.ManyToManyField(User)
+	# *************
 	team_name = models.CharField(max_length=200)
 	creation_date = models.DateTimeField('date created')
 	genre = models.CharField(max_length=1, choices=GENRE_CHOICES)
@@ -79,3 +81,7 @@ class Team(models.Model):
 
 	def __unicode__(self):
 		return self.team_name
+
+#class Team_Members(models.Model):
+#	members=models.ForeignKey(User)
+#	team=models.ForeignKey(Team)
